@@ -13,3 +13,8 @@ def two_sum(array)
     end
     indicies
 end
+
+def my_transpose(grid)
+ 
+    #grid.transpose
+end
