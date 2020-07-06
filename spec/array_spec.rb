@@ -36,15 +36,19 @@ describe "#two_sum" do
         end
     end
 
-    it "smaller elements first" do
+    it "first num in order smallest to largest" do
+        first_eles = []
         pairs.each do |pair|
-            expect(pair.first).to be < (pair.last)
+            first_eles.push(pair.first)
         end
+        expect(first_eles).to eq(first_eles.sort)
     end
 
-    it "smaller pair first" do
-        pairs[0..-2].each_with_index do |pair, ind|
-            expect(pair.sum).to be <= (pairs[ind+1].sum)
+    it "second element in order of smallest to largest" do
+        pairs[0...-1].each_with_index do |pair, ind|
+            if pairs[ind].first == pairs[ind+1].first
+                expect(pairs[ind].last).to be < (pairs[ind+1].last)
+            end
         end
     end
 
