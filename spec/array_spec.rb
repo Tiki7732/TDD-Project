@@ -51,6 +51,21 @@ describe "#two_sum" do
             end
         end
     end
+end
 
+describe "#my_transpose" do
+    let(:grid) {[[0,1,2], [3,4,5], [6,7,8]]}
+    let(:rotated_grid) {my_transpose(grid)}
+
+    it "takes a 2d array" do
+        grid.each {|row| expect(row).to be_a Array}
+        #expect(grid).to be_a Array
+    end
+
+    it "returns a new 2d array" do
+        rotated_grid.each {|row| expect(row).to be_a Array}
+    end
+
+    it "rotates 2d array 90 degrees"
 end
 
