@@ -25,3 +25,13 @@ describe "my_uniq" do
 
 end
 
+describe "#two_sum" do
+    let(:test) {[-1, 0, 2, -2, 1, 0, -3, 4, -4, 3, 1]}
+
+    it "finds pairs whose elements add up to zero"
+
+    it "sorts with smaller elements first"
+
+    it "sorts with smaller pair first"
+end
+
