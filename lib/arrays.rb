@@ -24,3 +24,19 @@ def my_transpose(grid)
     rotated
     #grid.transpose
 end
+
+def stock_picker(array)
+    i = 0
+    days = []
+    diff = array[i] - array[0]
+    while i < array.length - 1
+        array[i +1..-1].each_with_index do |day, ind|
+            if (day - array[i]) >= diff
+                diff = day - array[i]
+                days[0], days[1] = i, (ind + i + 1 )
+            end
+        end
+        i += 1
+    end
+    days
+end
