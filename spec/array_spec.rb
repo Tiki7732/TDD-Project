@@ -68,11 +68,13 @@ describe "#my_transpose" do
 end
 
 describe "#stock_picker" do
-    let(:stock) {[1, 4, 3, 19, 0, 6, 10, 12, 16, 17, 16, 15, 14, 11, 10]}
+    let(:stock) {[1, 4, 3, 18, 12, 19, 0, 6, 10, 12, 16, 17, 16, 15, 14, 11, 10]}
     let(:most_profit) {stock_picker(stock)}
 
     it "picks the largest gap" do
-        expect(most_profit.last - most_profit.first).to eq(18)
+        buy = stock[most_profit.first]
+        sell = stock[most_profit.last]
+        expect(sell - buy).to eq(18)
     end
 
     it "returns 2 days" do
