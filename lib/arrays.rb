@@ -15,6 +15,12 @@ def two_sum(array)
 end
 
 def my_transpose(grid)
- 
+    rotated = Array.new(grid.size){Array.new(grid.size)}
+    grid.each_with_index do |row, ind1|
+        row.each_with_index do |item, ind2|
+            rotated[ind2][ind1] = item
+        end
+    end
+    rotated
     #grid.transpose
 end
