@@ -57,11 +57,6 @@ describe "#my_transpose" do
     let(:grid) {[[0,1,2], [3,4,5], [6,7,8]]}
     let(:rotated_grid) {my_transpose(grid)}
 
-    # it "takes a 2d array" do
-    #     grid.each {|row| expect(row).to be_a Array}
-    #     #expect(grid).to be_a Array
-    # end
-
     it "returns a new 2d array" do
         rotated_grid.each {|row| expect(row).to be_a Array}
     end
@@ -72,3 +67,13 @@ describe "#my_transpose" do
     end
 end
 
+describe "#stock_picker" do
+    let(:stock) {[1, 4, 3, 19, 0, 6, 10, 12, 16, 17, 16, 15, 14, 11, 10]}
+    let(:most_profit) {stock_picker(stock)}
+
+    it "picks the largest gap"
+
+    it "returns 2 days"
+
+    it "picks a day to buy before day to sell"
+end
