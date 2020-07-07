@@ -71,9 +71,15 @@ describe "#stock_picker" do
     let(:stock) {[1, 4, 3, 19, 0, 6, 10, 12, 16, 17, 16, 15, 14, 11, 10]}
     let(:most_profit) {stock_picker(stock)}
 
-    it "picks the largest gap"
+    it "picks the largest gap" do
+        expect(most_profit.last - most_profit.first).to eq(18)
+    end
 
-    it "returns 2 days"
+    it "returns 2 days" do
+        expect(most_profit.length).to eq(2)
+    end
 
-    it "picks a day to buy before day to sell"
+    it "picks a day to buy before day to sell" do
+        expect(most_profit.first).to be < (most_profit.last)
+    end
 end
