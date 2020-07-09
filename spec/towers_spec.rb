@@ -34,6 +34,25 @@ describe "PART 2" do
 
             it "should not put a bigger disk on a smaller disk"
         end
+
+        describe "#won?" do
+            it "should check if the first two arrays are empty"
+
+            it "should check that the last array has all the disks"
+
+            it "should check the order of the last array"
+
+            it "should return true"
+
+            context "when there are remaining disks on either of first 2 towers" do
+                let(:tower1) {[5,4,3]}
+                it "should return false" do
+                    
+                    expect(towers.won?).to eq(false)
+                end
+            end
+
+        end
     end
 
 end
