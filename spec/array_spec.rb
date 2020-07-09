@@ -1,4 +1,5 @@
 require 'arrays'
+require 'towers'
    
 describe "my_uniq" do
     let(:dups_array) {[4, 2, 3, 7, 2, 9, 9, 0, 7, 4, 1, 6]}
@@ -83,5 +84,17 @@ describe "#stock_picker" do
 
     it "picks a day to buy before day to sell" do
         expect(most_profit.first).to be < (most_profit.last)
+    end
+end
+
+describe "Towers" do
+    let (:towers) {Towers.new(3)}
+
+    describe "#initialize" do
+        it "should set difficulty level as a number between 1 and 10" do
+            expect(towers.instance_variable_get(:@difficulty)).to be_a(Integer)
+            expect(towers.instance_variable_get(:@difficulty)).to be_between(1, 10)
+        end
+
     end
 end
