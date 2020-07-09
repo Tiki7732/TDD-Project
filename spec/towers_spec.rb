@@ -16,7 +16,7 @@ describe "PART 2" do
                 expect(towers.instance_variable_get(:@tower3)).to be_a(Array)
             end
 
-            it "should initialize first array with disks" do
+            it "should initialize first array with numbers representing disks" do
                 expect(towers.tower1).to_not be_empty
                 expect(towers.tower1.length).to eq(towers.instance_variable_get(:@difficulty))
             end
@@ -28,9 +28,11 @@ describe "PART 2" do
         end
 
         describe "#move" do
-            it "should accept a from array and a to array"
+            it "should accept an array to move from and one to move to"
 
-            it "should place the last element from the "
+            it "should move an element from the first array to the target array"
+
+            it "should not put a bigger disk on a smaller disk"
         end
     end
 
