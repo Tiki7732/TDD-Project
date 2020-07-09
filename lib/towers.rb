@@ -10,8 +10,11 @@ class Towers
     end
 
     def play
+        
         until won? || @quit
             begin
+                system('clear')
+                show_towers
                 from_tower = get_from
                 next if from_tower.nil?
                 to_tower = get_to
@@ -27,6 +30,17 @@ class Towers
     end
 
     private
+
+    def show_towers
+        size = @difficulty - 1
+            print " Tower  Tower  Tower \n"
+            print "   1      2      3 \n"
+            print "\n"
+        while size >= 0 
+            print "   #{tower1[size]}      #{tower2[size]}      #{tower3[size]} \n"
+            size -= 1
+        end
+    end
 
     def move(from_tower, to_tower)
          if valid_move?(from_tower, to_tower)
