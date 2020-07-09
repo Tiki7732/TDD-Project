@@ -1,6 +1,6 @@
 class Towers
 
-    attr_reader :tower1, :tower2, :tower3
+    attr_reader :tower1, :tower2, :tower3, :difficulty
     def initialize(difficulty)
         @difficulty = difficulty
         @tower1 = (1..difficulty).to_a
