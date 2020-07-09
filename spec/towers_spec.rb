@@ -28,11 +28,24 @@ describe "PART 2" do
         end
 
         describe "#move" do
-            it "should accept an array to move from and one to move to"
+            let(:tower1) {[3,2,1]}
+            let(:tower2) {[]}
+            let(:tower3) {[]}
 
-            it "should move an element from the first array to the target array"
+            it "should accept an array to move from and one to move to" do
+                towers.move(tower1, tower2)
+            end
 
-            it "should not put a bigger disk on a smaller disk"
+            it "should move an element from the first array to the target array" do
+                towers.move(tower1, tower2)
+                expect(tower1).to eq([3,2])
+                expect(tower2).to eq([1])
+            end
+
+            it "should not put a bigger disk on a smaller disk" do
+                towers.move(tower1, tower2)
+                expect(towers.move(tower1, tower2)).to raise_error("Can't put a larger disk on a smaller disk")
+            end
         end
 
         describe "#won?" do
