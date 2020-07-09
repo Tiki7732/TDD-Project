@@ -44,23 +44,57 @@ describe "PART 2" do
 
             it "should not put a bigger disk on a smaller disk" do
                 towers.move(tower1, tower2)
-                expect(towers.move(tower1, tower2)).to raise_error("Can't put a larger disk on a smaller disk")
+                expect{towers.move(tower1, tower2)}.to raise_error("Not a valid move")
+
             end
         end
 
         describe "#won?" do
-            it "should check if the first two arrays are empty"
+            let(:towers) do 
+                towers = Towers.new(3)
+                tower1 = towers.tower1
+                tower2 = towers.tower2
+                tower3 = towers.tower3
+                towers.move(tower1, tower3)
+                towers.move(tower1, tower2)
+                towers.move(tower3, tower2)
+                towers.move(tower1, tower3)
+                towers.move(tower2, tower1)
+                towers.move(tower2, tower3)
+                towers.move(tower1, tower3)
+                towers
+            end
+            #tower1 = towers.instance_variable_get(:tower1)
 
-            it "should check that the last array has all the disks"
+            it "should check if the first two arrays are empty" do
+                # tower1 = towers.tower1
+                # tower2 = towers.tower2
+                # tower3 = towers.tower3
+                # towers.move(tower1, tower3)
+                # towers.move(tower1, tower2)
+                # towers.move(tower3, tower2)
+                # towers.move(tower1, tower3)
+                # towers.move(tower2, tower1)
+                # towers.move(tower2, tower3)
+                # towers.move(tower1, tower3)
+                expect(towers.tower1).to be_empty
+                expect(towers.tower2).to be_empty
+            end
 
-            it "should check the order of the last array"
+            it "should check that the last array has all the disks" do
+                expect(towers.tower3.length).to eq(towers.difficulty)
+            end
 
-            it "should return true"
+            it "should return true" do
+                expect(towers.won?).to eq(true)
+            end
 
             context "when there are remaining disks on either of first 2 towers" do
-                let(:tower1) {[5,4,3]}
+                
                 it "should return false" do
-                    
+                    tower3 = towers.tower3
+                    tower1 = towers.tower1
+                    towers.move(tower3, tower1)
                     expect(towers.won?).to eq(false)
                 end
             end
