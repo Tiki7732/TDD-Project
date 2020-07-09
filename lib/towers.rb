@@ -8,4 +8,10 @@ class Towers
         @tower3 = []
     end
 
+    def won?
+        return false unless tower1.empty? && tower2.empty?
+        return false unless tower3.sort.reverse! == tower3
+        true
+    end
+
 end
