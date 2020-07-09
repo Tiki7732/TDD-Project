@@ -9,6 +9,25 @@ class Towers
         @quit = false
     end
 
+    def play
+        until won? || @quit
+            begin
+                from_tower = get_from
+                next if from_tower.nil?
+                to_tower = get_to
+                next if to_tower.nil?
+                move(from_tower, to_tower)
+            rescue Exception => e
+                puts e.message
+                retry
+            end
+            puts "Congrats! You Won!" if won?
+            puts "See you next time"
+        end  
+    end
+
+    private
+
     def move(from_tower, to_tower)
          if valid_move?(from_tower, to_tower)
             to_tower.push(from_tower.pop)
@@ -57,22 +76,7 @@ class Towers
         end
     end
 
-    def play
-        until won? || @quit
-            begin
-                from_tower = get_from
-                to_tower = get_to
-                move(from_tower, to_tower)
-            rescue Exception => e
-                puts e.message
-                retry
-                
-            end
-            puts "Congrats! You Won!" if won?
-            puts "See you next time"
-        end
-            
-    end
+
 
     def valid_move?(from_tower, to_tower)
         return false if from_tower.empty?
